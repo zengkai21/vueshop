@@ -5,10 +5,20 @@ import VueRouter from 'vue-router'
 //1.2安装路由
 Vue.use(VueRouter)
 
+
+//导入格式化时间的插件
+import moment from 'moment'
+//定义全局过滤器
+Vue.filter('dateFormat',function(datestr,pattern='YYYY-MM-DD HH:mm:ss'){
+    return moment(datestr).format(pattern)
+})
+
+
 //导入vue-resource
 import VueResource from 'vue-resource'
 Vue.use(VueResource)
-
+//设置请求根路径
+Vue.http.options.root="http://www.liulongbin.top:3005"
 //导入App根组件
 import app from './App.vue'
 
@@ -18,11 +28,12 @@ import './lib/mui/css/icons-extra.css'
 import 'bootstrap/dist/css/bootstrap.css'
 
 //引入 Mint-UI 的 Header 组件
-import { Header,Swipe, SwipeItem  } from 'mint-ui';
+import { Header,Swipe, SwipeItem,Button } from 'mint-ui';
 
 Vue.component(Header.name, Header);
 Vue.component(Swipe.name, Swipe);
 Vue.component(SwipeItem.name, SwipeItem);
+Vue.component(Button.name, Button);
 
 //1.3导入自己的router.js 路由模块
 import router from './router.js'
