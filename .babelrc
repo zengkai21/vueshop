@@ -1,7 +1,7 @@
 {
-  "plugins": ["transform-runtime", ["component", [{
+  "plugins": ["transform-runtime", [ "component", [{
     "libraryName": "mint-ui",
     "style": true
-  }]]],
+  }]],"transform-remove-strict-mode"],
   "presets": ["env", "stage-0"]
 }
